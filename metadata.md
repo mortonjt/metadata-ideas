@@ -1,3 +1,4 @@
+Here we will be revisiting and expanding upon the [qiime2.Metadata](https://github.com/qiime2/qiime2/blob/dev/qiime2/metadata/metadata.py) object.
 
 Requirements
 We want to be able to enable users to more easily annotate their metadata files.  This means providing easy ways to
