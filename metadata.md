@@ -37,4 +37,6 @@ SampleMetadata(pd.DataFrame, DataDictionary)
 ```
 
 
+Follow up questions
 
+1. Should the `SampleMetadata` object directly subclass `pd.DataFrame` and just add an extra argument for `DataDictionary`, or should it expand upon `qiime2.Metadata`?  The benefit of subclassing `pd.DataFrame` directly is that it is closer to the pandas api, enabling easier manipulation.  The con is that it complicates backwards compatibility with `qiime2.Metadata`.  On the other hand, we could take the existing `qiime2.Metadata` object and port over some of the pandas functions (i.e. setters).  This will take some engineering work to accomplish.
