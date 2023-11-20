@@ -1,5 +1,17 @@
 Here we will be revisiting and expanding upon the [qiime2.Metadata](https://github.com/qiime2/qiime2/blob/dev/qiime2/metadata/metadata.py) object.
 
+Problem : automating (or semi-automating) metadata curation
+What are the biggest (or most time consuming) challenges for metadata curation?
+1. Interpreting column names / units / values (due to lack of documentation)
+2. Matching / syncing columns between metadata tables (quadratic runtime)
+3. Data validation. Identifying if values are properly typed or have appropriate values
+
+Possible solutions
+1. Reinforce standards ahead of time via standards (i.e. MIXS or MIMARKS) or template wizards (i.e. QIIMP)
+2. Lower the barrier for manual curation
+
+Issue with QIIMP : forces the wizard to identify all of the columns to be filled out, and doesn't allow for additional columns to be added.
+
 Requirements
 We want to be able to enable users to more easily annotate their metadata files.  This means providing easy ways to
 1. Search for similar metadata columns based on descriptions and types
@@ -39,4 +51,8 @@ SampleMetadata(pd.DataFrame, DataDictionary)
 
 Follow up questions
 
-1. Should the `SampleMetadata` object directly subclass `pd.DataFrame` and just add an extra argument for `DataDictionary`, or should it expand upon `qiime2.Metadata`?  The benefit of subclassing `pd.DataFrame` directly is that it is closer to the pandas api, enabling easier manipulation.  The con is that it complicates backwards compatibility with `qiime2.Metadata`.  On the other hand, we could take the existing `qiime2.Metadata` object and port over some of the pandas functions (i.e. setters).  This will take some engineering work to accomplish.
+1. Should the `SampleMetadata` object directly subclass `qiime2.Metadata` and just add an extra argument for `DataDictionary`, or should it replace `qiime2.Metadata`?
+2. What type of interface would best faciliate column matching between two sample metadata objects? k-nearest neighbors, bipartite matching, or both?
+3. What are good datasets to test this on?  ASD-meta-analysis? Soil stressors project? FMT meta-analysis?
+4. What would best faciliate the process of inspecting elements within a spreadsheet? For instance, if one wanted to identify static vs dynamic variables, what would be a reasonable interface?
+5. Is it worth interfacing with [OpenRefine](https://openrefine.org/)? [Trelloscope](https://trelliscope.org/) in the (distant) future)?
