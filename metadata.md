@@ -52,7 +52,7 @@ SampleMetadata(pd.DataFrame, DataDictionary)
 Follow up questions
 
 1. Should the `SampleMetadata` object directly subclass `qiime2.Metadata` and just add an extra argument for `DataDictionary`, or should it replace `qiime2.Metadata`?
-2. What type of interface would best faciliate column matching between two sample metadata objects? k-nearest neighbors, bipartite matching, or both?
-3. What are good datasets to test this on?  ASD-meta-analysis? Soil stressors project? FMT meta-analysis?
+2. What type of interface would best faciliate column matching between two sample metadata objects? k-nearest neighbors, bipartite matching, or both? And how should column similarity should be measured (i.e. values in the columns, semantic similarity between text, or similarity between unit descriptions?).
+3. What are good datasets to test this on?  ASD-meta-analysis? Soil stressors project? FMT meta-analysis? American Gut Project?
 4. What would best faciliate the process of inspecting elements within a spreadsheet? For instance, if one wanted to identify static vs dynamic variables, what would be a reasonable interface?
-5. Is it worth interfacing with [OpenRefine](https://openrefine.org/)? [Trelloscope](https://trelliscope.org/) in the (distant) future)?
+5. We should investigate other tools that could complement this approach (i.e. [OpenRefine](https://openrefine.org/) [Trelloscope](https://trelliscope.org/), Excel ) - I'm wary about defining visualization / interactive functions, but if there is a tabular visualization library that enables scripting, that could be useful.  
