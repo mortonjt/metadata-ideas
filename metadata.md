@@ -37,17 +37,33 @@ At a high level, we can formulate the following structure
 2. A `DataDictionary` object that is really a dictionary of `str`, `DataColumn` pairs
 3. The SampleMetadata contains both a `pd.DataFrame` and a `DataDictionary`
 
+The `DataColumn` now has 2 functions
+- `validate` which determines if the column has validate values consistent with the time
+- `cast` which casts the input values to the specifie type, enabling transformations
+It is important to also note that the defined `DataColumn` specifies missing values, which is often an edge case in data transformations.
+
+Below are the DataColumn subtypes that are currently defined
 
 ```
 DataColumn
+ - BooleanDataColumn
  - CategoricalDataColumn
  - ContinuousDataColumn
-
+ - OrdinalDataColumn
+ - FreeTextDataColumn
+ - IdentifierDataColumn
+ - BiospecimenDataColumn
+ - TemporalDataColumn
+ - Spatial1dDataColumn
+ - Spatial2dDataColumn
+ - Spatial3dDataColumn
+```
+And these `DataColumn` objects can be fed into a `DataDictionary` object, which are then used to create `SampleMetadata` objects
+```
 DataDictionary[Str, DataColumn]
 
 SampleMetadata(pd.DataFrame, DataDictionary)
 ```
-
 
 Follow up questions
 
