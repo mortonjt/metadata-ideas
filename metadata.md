@@ -12,7 +12,14 @@ Possible solutions
 
 Issue with QIIMP : forces the wizard to identify all of the columns to be filled out, and doesn't allow for additional columns to be added.
 
-Requirements
+Requirements for metadata format
+1. Identifiers that uniquely identify host_subject_id, timepoints and other contexts (i.e. geographical location)
+2. Identifiers that uniquely identify biospecimens (to handle multiple omics levels)
+3. Being able to handle time points with metadata (but no biospecimen information)
+4. Being able to interface with QIIMP
+5. Update QIIMP to be able to handle additional identifier types
+
+Requirements for metadata manipulation
 We want to be able to enable users to more easily annotate their metadata files.  This means providing easy ways to
 1. Search for similar metadata columns based on descriptions and types
 2. Renaming metadata column names
