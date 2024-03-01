@@ -36,7 +36,7 @@ For the metadata object, we need at least 2 (possibly 3) distinct classes, `Data
 The role of the `DataDictionary` object is to make it easier to keep track of types.
 The `DataDictionary` itself is a dictionary, but the values within the `DataDictionary` class itself are typed.
 
-
+Hi there! I am testing GitHub's online editor!
 
 At a high level, we can formulate the following structure
 
